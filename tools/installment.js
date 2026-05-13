@@ -63,8 +63,8 @@ export async function installmentList({ keyword = '', limit = 10, page = 1 }) {
               i.installment_period,
               s.student_fullname, s.student_whatsapp,
               br.batch_desc, br.batch_date
-       ${baseJoin} ORDER BY i.created_at DESC LIMIT ? OFFSET ?`,
-      [...params, limit, offset],
+       ${baseJoin} ORDER BY i.created_at DESC LIMIT ${limit} OFFSET ${offset}`,
+      params,
     );
     return { data: rows, total, page, limit, total_pages: Math.ceil(total / limit) || 1 };
   } finally {

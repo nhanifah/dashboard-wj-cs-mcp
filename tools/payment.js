@@ -38,8 +38,8 @@ export async function paymentList({ keyword = '', student_id = '', limit = 10, p
       `SELECT xi.id, xi.external_id, xi.invoice_url, xi.status,
               xi.amount, xi.payer_email, xi.paid_at, xi.created_at,
               s.student_fullname, s.student_whatsapp
-       ${baseJoin} ORDER BY xi.created_at DESC LIMIT ? OFFSET ?`,
-      [...params, limit, offset],
+       ${baseJoin} ORDER BY xi.created_at DESC LIMIT ${limit} OFFSET ${offset}`,
+      params,
     );
     return { data: rows, total, page, limit, total_pages: Math.ceil(total / limit) || 1 };
   } finally {

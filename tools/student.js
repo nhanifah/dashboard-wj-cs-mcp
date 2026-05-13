@@ -25,8 +25,8 @@ export async function studentSearch({ keyword, limit = 10, page = 1 }) {
        GROUP BY s.student_id, s.student_fullname, s.student_whatsapp,
                 s.student_email, s.student_address_province
        ORDER BY s.student_fullname ASC
-       LIMIT ? OFFSET ?`,
-      [like, like, limit, offset],
+       LIMIT ${limit} OFFSET ${offset}`,
+      [like, like],
     );
     return { data: rows, total, page, limit, total_pages: Math.ceil(total / limit) || 1 };
   } finally {
