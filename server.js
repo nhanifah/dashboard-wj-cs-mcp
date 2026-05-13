@@ -4,7 +4,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { z } from 'zod';
 
 import { classSchedule }               from './tools/schedule.js';
-import { batchList, batchGetById, packageLookup } from './tools/batch.js';
+import { batchList, batchGetById, packageLookup, batchCurrentMonth, batchAvailableMonths } from './tools/batch.js';
 import { installmentGetUnpaidByPhone, installmentGetByStudent, installmentList } from './tools/installment.js';
 import { studentSearch }               from './tools/student.js';
 import { paymentList, paymentRecreateInvoice, paymentExpireInvoice } from './tools/payment.js';
@@ -39,6 +39,18 @@ tool('batch_list',
     class_name: z.string().optional().default('').describe('Filter by class, misal N5'),
   },
   batchList,
+);
+
+tool('batch_current_month',
+  'Daftar batch bulan ini untuk satu kelas, sudah difilter otomatis berdasarkan bulan sekarang, diurutkan by tanggal ascending',
+  { class_name: z.enum(['N5', 'N4', 'N3', 'JFT', 'KAIWA']).describe('Nama kelas') },
+  batchCurrentMonth,
+);
+
+tool('batch_available_months',
+  'List bulan-bulan yang tersedia di database batch, dari terbaru ke terlama (format: "May 2026")',
+  {},
+  batchAvailableMonths,
 );
 
 tool('batch_get_by_id',

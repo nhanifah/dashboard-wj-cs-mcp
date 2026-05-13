@@ -1,0 +1,267 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2026-05-13",
+    "organization": "WKWK Japanese Course",
+    "language": "Indonesian",
+    "note": "Load ke MCP server memory atau pass ke system prompt"
+  },
+
+  "paket_kelas": {
+    "_pricing_note": "JANGAN gunakan harga statis. Selalu query wj-cs:package_lookup (class_name) → ambil dari package_list.package_fee di database",
+    "hiragana_katakana": {
+      "nama": "Paket Hiragana & Katakana",
+      "deskripsi": "Belajar menulis & membaca hiragana + katakana dari dasar",
+      "durasi": "Fleksibel (sesuai progress)",
+      "harga": "QUERY package_lookup(class_name='hiragana') atau class_name='katakana'",
+      "target_student": ["Belum belajar sama sekali", "Sudah tahu hiragana, mau tambah katakana"],
+      "format": "Online",
+      "recording": true,
+      "cocok_untuk": "Casual learners, hobby"
+    },
+    "n5": {
+      "nama": "Level N5 (Dasar JLPT)",
+      "deskripsi": "Foundation grammar, vocabulary ~1500 kata, hiragana + katakana + kanji basic",
+      "durasi": "8-12 minggu",
+      "harga": "QUERY package_lookup(class_name='N5')",
+      "target_student": ["Sudah bisa hiragana/katakana", "Mau structured learning", "Hobi atau prep untuk test"],
+      "format": "Online",
+      "recording": true,
+      "batch_upcoming": "QUERY wj-cs:batch_current_month(class_name='N5') atau wj-cs:class_schedule",
+      "cocok_untuk": "Semua, terutama yang fresh start atau hobby learners"
+    },
+    "n4": {
+      "nama": "Level N4 (Pre-Intermediate)",
+      "deskripsi": "Grammar lebih kompleks, vocabulary ~6000 kata, reading passages pendek",
+      "durasi": "8-12 minggu",
+      "harga": "QUERY package_lookup(class_name='N4')",
+      "target_student": ["Sudah N5 atau setara", "Mau lanjut ke intermediate"],
+      "format": "Online",
+      "recording": true,
+      "prerequisite": "N5 atau pengetahuan setara",
+      "cocok_untuk": "Learners dengan foundation N5, test prep"
+    },
+    "n3": {
+      "nama": "Level N3 (Intermediate)",
+      "deskripsi": "Advanced grammar, kanji 600+, reading/listening level menengah",
+      "durasi": "10-14 minggu",
+      "harga": "QUERY package_lookup(class_name='N3')",
+      "target_student": ["Sudah N4 atau setara"],
+      "format": "Online",
+      "recording": true,
+      "prerequisite": "N4 atau pengetahuan setara",
+      "cocok_untuk": "Test prep JLPT N3, advanced learners"
+    },
+    "jft": {
+      "nama": "JFT (Japanese For Test)",
+      "deskripsi": "Fokus preparation untuk test tertentu (bukan JLPT)",
+      "durasi": "Fleksibel",
+      "harga": "QUERY package_lookup(class_name='JFT')",
+      "format": "Online",
+      "recording": true,
+      "cocok_untuk": "Test-specific preparation"
+    },
+    "kaiwa": {
+      "nama": "KAIWA (Conversation)",
+      "deskripsi": "Fokus conversation skills, daily dialogs, speaking practice",
+      "durasi": "Fleksibel",
+      "harga": "QUERY package_lookup(class_name='KAIWA')",
+      "format": "Online",
+      "recording": true,
+      "prerequisite": "Minimal N5 knowledge recommended",
+      "cocok_untuk": "Conversation-focused, business Japanese, travel prep"
+    }
+  },
+
+  "discount_codes": {
+    "WJBRO": {
+      "description": "WJBRO code",
+      "diskon_amount": "200000-300000",
+      "diskon_unit": "per_level",
+      "applicable_pakets": ["n5", "n4", "n3", "hiragana_katakana"],
+      "status": "active",
+      "notes": "Diskon diberikan per level yang diambil"
+    },
+    "WJIG": {
+      "description": "WJIG promo",
+      "diskon_amount": "200000",
+      "diskon_unit": "per_level",
+      "applicable_pakets": ["n5", "n4", "n3"],
+      "status": "active",
+      "notes": "Partner promotion code"
+    },
+    "WJTIKTOK": {
+      "description": "TikTok special promo",
+      "diskon_amount": "TBD (check sheet)",
+      "status": "active",
+      "notes": "TikTok-sourced customers"
+    },
+    "TGJAPAN": {
+      "description": "TG Japan partnership",
+      "diskon_amount": "Negotiable",
+      "applicable_pakets": ["all"],
+      "status": "active",
+      "notes": "Referral dari TG Japan community"
+    },
+    "WJWA": {
+      "description": "WhatsApp referral",
+      "diskon_amount": "200000+",
+      "status": "active",
+      "notes": "Customer refer teman via WA"
+    }
+  },
+
+  "payment_methods": {
+    "xendit": {
+      "provider": "Xendit",
+      "methods": ["Transfer Bank", "E-wallet (OVO, Dana, LinkAja)", "Kartu Kredit", "BNPL (Kredivo, Akulaku)"],
+      "processing_time": "1-2 menit",
+      "notes": "Saat pembayaran berhasil, akses otomatis diberikan"
+    }
+  },
+
+  "payment_options": {
+    "mencicil": {
+      "label": "Pembayaran Mencicil",
+      "description": "Bayar berkala sesuai periode",
+      "advantage": ["Fleksibel cash flow", "Cicilan lebih kecil per pembayaran"],
+      "disadvantage": ["Total harga lebih mahal", "Komitmen jangka panjang"]
+    },
+    "sekali_bayar": {
+      "label": "Pembayaran Sekali",
+      "description": "Bayar penuh di awal",
+      "advantage": ["Hemat total (diskon tersembunyi)", "Akses langsung & penuh", "Tidak perlu ulang transfer"],
+      "disadvantage": ["Perlu budget sekaligus", "Risikok pembatalan"]
+    }
+  },
+
+  "faq": {
+    "umum": {
+      "q1": {
+        "question": "Apa itu Wkwk Japanese Course?",
+        "answer": "Wkwk adalah platform pembelajaran Bahasa Jepang online. Kami menawarkan kelas dari level dasar (hiragana) hingga intermediate, dengan fokus pada structured learning dan conversation practice. Semua kelas memiliki recording yang tersedia untuk diakses kapan saja."
+      },
+      "q2": {
+        "question": "Berapa harga kelas?",
+        "answer": "[AGENT: Panggil package_lookup untuk class yang dimaksud, lalu quote package_fee dari hasilnya. Jangan pakai angka statis.] Harga tiap level berbeda-beda kak. Boleh saya tahu kelas mana yang Anda minati? Saya cek harga terkininya."
+      },
+      "q3": {
+        "question": "Apakah kelas ada recording?",
+        "answer": "Ya, semua kelas kami punya recording yang SELALU tersedia. Jadi Anda bisa mengakses materi kapan saja, bahkan jika tidak bisa hadir live. Tidak ada absensi penalty."
+      }
+    },
+    "kelas_selection": {
+      "q4": {
+        "question": "Saya belum pernah belajar Jepang. Mulai dari mana?",
+        "answer": "Rekomendasi: mulai dari Paket Hiragana & Katakana atau langsung N5 (jika mau structured). Keduanya cocok untuk fresh start. Kami akan assess tujuan & waktu Anda untuk rekomendasi terbaik. Tujuan belajar Anda apa, kak?"
+      },
+      "q5": {
+        "question": "Saya sudah bisa hiragana, apa next step?",
+        "answer": "Next step bisa: (1) Katakana (Paket Hiragana & Katakana), atau (2) Langsung N5 (lebih terstruktur). Mana yang Anda prefer? Dan tujuan Anda apa - hobby, test prep, atau career?"
+      },
+      "q6": {
+        "question": "Saya sudah N5, mau lanjut N4. Bisa?",
+        "answer": "Tentu! N4 adalah next level yang lebih challenging. Sistem pembayaran sama (mencicil atau sekali bayar). Batch N4 kami [CHECK SCHEDULE]. Kapan Anda bisa mulai?"
+      },
+      "q7": {
+        "question": "Apa perbedaan N5, N4, N3?",
+        "answer": "N5 = Dasar (1500 vocab, hiragana+katakana+kanji basic). N4 = Pre-intermediate (6000 vocab, grammar kompleks). N3 = Intermediate (kanji 600+, advanced reading). Makin tinggi = makin challenging. Pilih sesuai level & tujuan Anda."
+      }
+    },
+    "payment_pembayaran": {
+      "q8": {
+        "question": "Bagaimana cara bayar?",
+        "answer": "Saya akan generate link pembayaran Xendit untuk Anda. Bisa dibayar via Transfer Bank, E-wallet (OVO, Dana), Kartu Kredit, atau BNPL. Proses langsung 1-2 menit. Saat pembayaran berhasil, akses kelas otomatis diberikan."
+      },
+      "q9": {
+        "question": "Bisa cicil atau harus sekali bayar?",
+        "answer": "Bisa keduanya! Cicilan lebih fleksibel, tapi total sedikit lebih mahal. Sekali bayar lebih hemat, tapi butuh budget sekaligus. Mana pilihan Anda?"
+      },
+      "q10": {
+        "question": "Ada diskon tidak?",
+        "answer": "Ada beberapa kode discount aktif: WJBRO, WJIG, WJWA, TGJAPAN, WJTIKTOK. Coba pakai code Anda saat checkout untuk hemat. Ada kode spesial yang Anda punya, kak?"
+      }
+    },
+    "teknis_akademik": {
+      "q11": {
+        "question": "Jam kelas berapa? Bisa flexible timing?",
+        "answer": "Kelas ada di jam-jam tertentu per batch. Semua kelas punya RECORDING, jadi Anda bisa tonton kapan saja jika tidak bisa live. Flexible dengan materi, hanya timing live bisa berbeda per batch."
+      },
+      "q12": {
+        "question": "Bagaimana cara akses materi kelas?",
+        "answer": "Setelah pembayaran sukses, Anda dapat login ke portal kami. Di sana tersedia: Video pembelajaran, PDF materi, Exercise, Recording kelas. Semuanya bisa diakses offline untuk convenience Anda."
+      },
+      "q13": {
+        "question": "Ada sertifikat?",
+        "answer": "Untuk JLPT-aligned level (N5, N4, N3), kami recommend Anda test resmi JLPT untuk sertifikat official. Kami provide prep material, tapi sertifikat dari JLPT Japan sendiri. Ada interest untuk test prep?"
+      },
+      "q14": {
+        "question": "Bagaimana kualitas teacher?",
+        "answer": "Semua teacher kami berpengalaman dalam mengajar Bahasa Jepang. Detail spesifik teacher per batch akan saya share setelah Anda daftar. Ada pertanyaan khusus soal pengalaran mereka?"
+      }
+    },
+    "career_job": {
+      "q15": {
+        "question": "Setelah lulus, bisa kerja di Jepang?",
+        "answer": "Wkwk fokus pada LANGUAGE LEARNING. Untuk job matching, visa, atau relokasi, ada partner kami: **TG Japan** (karir di Jepang) dan **Go Global** (international job placement). Saya bisa connect Anda dengan mereka jika tertarik. Mau info lebih detail?"
+      },
+      "q16": {
+        "question": "Apa ada garansi placement atau job matching?",
+        "answer": "Maaf, kami tidak provide job guarantee atau job matching. Kami guarantee language learning quality. Jika Anda punya minat karir di Jepang, bisa konsultasi dengan partner kami TG Japan yang specialist di recruitment."
+      },
+      "q17": {
+        "question": "Cocok untuk fresh graduate yang mau kerja di Jepang?",
+        "answer": "Cocok untuk foundation! N4-N3 adalah standar minimal untuk bekerja di Jepang. Tapi proses visa, job search, dan relokasi adalah domain partner kami (TG Japan, Go Global), bukan Wkwk. Mau saya connect ke mereka untuk konsultasi karir?"
+      }
+    },
+    "special_programs": {
+      "q18": {
+        "question": "Ada program SSW (Sekolah Sekolah Wkwk)?",
+        "answer": "Saat ini kami tidak buka program SSW. Kami fokus pada regular kelas online per level. Ada interest ke level atau format lain?"
+      },
+      "q19": {
+        "question": "Ada kelas private/one-on-one?",
+        "answer": "Pertanyaan bagus! Saat ini format kami group class online. Untuk private session, perlu tanya supervisor. Saya escalate request Anda - tunggu kontak dari tim dalam 24 jam ya."
+      },
+      "q20": {
+        "question": "Ada kelas offline di lokasi tertentu?",
+        "answer": "Format kami primarily ONLINE. Untuk offline class, ada partner kami **Go Global** yang offer di berbagai lokasi. Mau saya connect ke mereka?"
+      }
+    }
+  },
+
+  "response_templates": {
+    "greeting_new": "Halo! 👋 Selamat datang di Wkwk Japanese Course. Saya {name}, customer care team. Ada yang bisa saya bantu hari ini?",
+    "greeting_returning": "Halo {customer_name}! Senang bertemu lagi. Ada yang bisa saya bantu?",
+    "needs_assessment_start": "Baik, saya siap membantu Anda menemukan kelas yang cocok. Boleh saya tahu sedikit latar belakang Anda?",
+    "recommendation_intro": "Berdasarkan yang Anda ceritakan, saya punya beberapa rekomendasi untuk Anda:",
+    "payment_setup": "Mantap! Saya akan buatkan link pembayaran untuk Anda. Tapi sebelumnya, saya perlu data lengkap Anda untuk registrasi.",
+    "escalation": "Baik kak, saya akan escalate ke tim supervisor kami. Mereka akan hubungi Anda dalam 24 jam via WhatsApp.",
+    "closing": "Terima kasih sudah memilih Wkwk Japanese Course! Semoga perjalanan belajar Anda menyenangkan. Jangan ragu hubungi saya kalau ada pertanyaan."
+  },
+
+  "partner_info": {
+    "tg_japan": {
+      "name": "TG Japan",
+      "focus": "Job placement, karir di Jepang, visa guidance",
+      "contact": "[Add contact if available]",
+      "referral_code": "TGJAPAN"
+    },
+    "go_global": {
+      "name": "Go Global",
+      "focus": "Offline kelas, international job placement, relokasi",
+      "contact": "[Add contact if available]",
+      "notes": "Partner untuk kelas offline & career placement"
+    }
+  },
+
+  "critical_rules_checklist": {
+    "rule_1": "Always mention: 'Recording tersedia untuk semua kelas' when discussing flexibility",
+    "rule_2": "Never promise: Job placement, job guarantee, atau visa sponsorship",
+    "rule_3": "Always reference: TG Japan untuk karir Jepang, Go Global untuk offline/placement",
+    "rule_4": "Do NOT upsell aggressively: Assess need first, recommend sincerely",
+    "rule_5": "Do mention discount codes: WJBRO, WJIG, WJWA, TGJAPAN, WJTIKTOK saat discuss pricing",
+    "rule_6": "Always gather profile before recommend: experience, goal, time, budget",
+    "rule_7": "Escalate clearly: refund, complaint serius, custom requests → supervisor"
+  }
+}
