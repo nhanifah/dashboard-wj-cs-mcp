@@ -1,0 +1,17 @@
+{
+  "name": "dashboard-wj-cs-mcp",
+  "version": "0.1.0",
+  "description": "MCP Server for WJ Dashboard CS Agent",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "mysql2": "^3.11.0",
+    "dotenv": "^16.4.0",
+    "node-fetch": "^3.3.2"
+  }
+}
